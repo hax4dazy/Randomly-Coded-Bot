@@ -46,7 +46,7 @@ client.login(token);;
 
 client.on('message', msg => {
     if (msg.content === 'tomger') {
-        msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.round(Math.random() * 10));
+        msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30));
      }
 });
 
