@@ -1,19 +1,7 @@
-    execute(message, serverQueue){},
-};	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-
-	const serverQueue = queue.get(message.guild.id);
-
-	if (message.content.startsWith(`${prefix}play`)) {
-		execute(message, serverQueue);
-		return;
-	} else if (message.content.startsWith(`${prefix}skip`)) {
-		skip(message, serverQueue);
-		return;
-	} else if (message.content.startsWith(`${prefix}stop`)) {
-		stop(message, serverQueue);
-		return;
-	} else {
-		message.channel.send('You need to enter a valid command!')
-	}
-});
+module.exports = {
+	name: 'play',
+	description: 'Plays the given song in the vc the user is in (not this is not the song handeling. That is in the main JS file for the bot)',
+	execute(message, args) {
+		message.channel.send('Your song has been added to the queue!');
+	},
+};

@@ -1,5 +1,7 @@
 module.exports = {
-	name: 'skip',
+	name: 'play',
 	description: 'Skips the current song',
-	skip(message, serverQueue){},
+	execute(message, args) {
+		message.channel.send('The current song has been skipped!');
+	},
 };
