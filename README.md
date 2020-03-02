@@ -9,8 +9,8 @@ NodeJS and Discord.js
 Do `npm install discord.js` to get Discord JS
 Download NodeJS from https://nodejs.org
 
-Run the following in the bot directory in CMD as admin
-- `npm install --global --production --vs2015 --add-python-to-path windows-build-tools`
+Run the following in the bot directory in CMD as admin to get the music playback to work. This is not required to run the bot.
+-`npm install --global --production --vs2015 --add-python-to-path windows-build-tools`
 
 -`npm install ytdl-core`
 
@@ -19,6 +19,10 @@ Run the following in the bot directory in CMD as admin
 -`npm install node-opus`
 
 -`npm install opusscript`
+
+-`npm install ffmpeg`
+
+-`npm insatll ffmpeg-static`
 
 
 # Credits
