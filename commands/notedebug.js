@@ -4,8 +4,10 @@ module.exports = {
 	execute(message, args) {
     const Discord = require('discord.js');
     const client = new Discord.Client();
-    ssconst fs = require('fs');
-    fs.appendFileSync('./logs/' + sessionid + '.txt', 'Note by' + message.author.username + '\nNote:' + args.join(' ') +'\n\n');
+    const fs = require('fs');
+    fs.appendFileSync('./logs/' + sessionid + '.txt', 'Note by ' + message.author.username + '\nNote:' + args.join(' ') +'\n\n');
+    message.reply('noted!')
+    return;
     const debugnote = args.join(' ')
     const notedebug = new Discord.RichEmbed()
 	.setColor('#1a1aff')

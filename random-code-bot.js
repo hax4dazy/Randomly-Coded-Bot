@@ -64,7 +64,12 @@ try {
 
 //uh oh something went wrong
 client.on('error', error => {
-    console.error('an error has occured', error);
+	const errorembed = new Discord.RichEmbed()
+	.setColor('#ff0000')
+	.setTitle('Debug Mode Error')
+    .addField('Error', error)
+	client.channels.get(`683751300063690885`).send(errorembed)
+	console.error('an error has occured', error);
 });
 
 
