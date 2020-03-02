@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'play',
+	name: 'skip',
 	description: 'Skips the current song',
 	execute(message, args) {
 		message.channel.send('The current song has been skipped!');
