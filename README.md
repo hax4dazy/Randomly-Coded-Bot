@@ -22,7 +22,7 @@ Run the following in the bot directory in CMD as admin to get the music playback
 
 -`npm install ffmpeg`
 
--`npm insatll ffmpeg-static`
+-`npm install ffmpeg-static`
 
 
 # Credits
