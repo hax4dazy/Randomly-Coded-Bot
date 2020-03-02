@@ -4,7 +4,8 @@
   "description": "",
   "main": "random-code-bot.js",
   "dependencies": {
-    "discord.js": "^11.6.1"
+    "discord.js": "^11.6.1",
+    "ytdl-core": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
