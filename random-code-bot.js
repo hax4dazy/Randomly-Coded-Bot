@@ -42,8 +42,18 @@ client.once('ready', () => {
 try {
   if (fs.existsSync(path)) {
 	//file exists
-	var tempname = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-	client.user.setUsername(tempname);
+	global.sessionid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+	var today = new Date();
+	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	global.dateTime = date+' '+time;
+	const exampleEmbed = new Discord.RichEmbed()
+	.setColor('#f8f8ff')
+	.setTitle('Debug Mode')
+	.addField('Test session ID', sessionid)
+	.addField('Current date/time', dateTime)
+
+	client.channels.get(`683751300063690885`).send(exampleEmbed);
 
 
   }
