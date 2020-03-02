@@ -37,6 +37,22 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+client.once('ready', () => {
+	const path = './debug.flag'
+try {
+  if (fs.existsSync(path)) {
+	//file exists
+	var tempname = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+	client.user.setUsername(tempname);
+
+
+  }
+} catch(err) {
+  console.error(err)
+}
+})
+
+//uh oh something went wrong
 client.on('error', error => {
     console.error('an error has occured', error);
 });
@@ -45,10 +61,15 @@ client.on('error', error => {
 // login to Discord with your app's token
 client.login(token);;
 
-
+//Don't ask
 client.on('message', msg => {
     if (msg.content === 'tomger') {
-        msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30));
+		msg.channel.startTyping()
+		setTimeout(function(){ 
+			msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30)); 
+			msg.channel.stopTyping()
+		}, 3000);
+		 msg.channel.stopTyping
      }
 });
 
