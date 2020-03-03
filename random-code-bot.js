@@ -6,7 +6,6 @@ client.commands = new Discord.Collection();
 const queue = new Map();
 const ytdl = require('ytdl-core');
 const { RichEmbed } = require('discord.js')
-const buildversion = debug68
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
