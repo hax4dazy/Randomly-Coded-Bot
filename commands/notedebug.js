@@ -15,6 +15,7 @@ module.exports = {
 	  .addField('Test session ID', sessionid)
     .addField('Current date/time', dateTime)
     .addField('Note', debugnote)
+    .addField('Note added by', message.author.username)
     message.client.channels.get(`683751300063690885`).send(notedebug);
   }
     };
