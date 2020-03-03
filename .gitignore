@@ -1,4 +1,7 @@
 
 debug.flag
 config.json
+node_modules/
+*.debuglog
+logs/
 node_modules/.bin/detect-libc
