@@ -1,4 +1,4 @@
 debug.flag
 config.json
 node_modules/
-*.debuglog
+logs/
