@@ -6,6 +6,7 @@ client.commands = new Discord.Collection();
 const queue = new Map();
 const ytdl = require('ytdl-core');
 const { RichEmbed } = require('discord.js')
+const buildversion = debug68
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -53,6 +54,7 @@ try {
 	.setTitle('Debug Mode')
 	.addField('Test session ID', sessionid)
 	.addField('Current date/time', dateTime)
+	.addField(buildversion)
 	.addField('---', 'The session has started.')
 
 	client.channels.get(`683751300063690885`).send(exampleEmbed);
@@ -92,6 +94,8 @@ client.on("ready", () => {
 //Don't ask
 client.on('message', msg => {
     if (msg.content.includes('tomger')) {
+		if (msg.content.includes('tomger is god')) {msg.channel.send('Yes')
+		return;}
 			msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30)); 
      }
 });
