@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'endsession',
+	aliases: ['sessionend', 'kill', 'logoff', 'die'],
 	description: 'Ends the session with reason',
 	execute(message, args) {
 	const Discord = require('discord.js');
@@ -8,6 +9,10 @@ module.exports = {
 	fs.appendFileSync('./logs/' + sessionid + '.debuglog', 'Note by ' + message.author.username + '\nNote:' + args.join(' ') +'\n\n Session ended.');
 	message.reply('noted!');
 	const noteforend = args.join(' ')
+	var today = new Date();
+	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	global.dateTime = date+' '+time;
 	const endsessionembed = new Discord.RichEmbed()
 		.setColor('#ff0000')
 		.setTitle('Debug Mode Session Ended')
