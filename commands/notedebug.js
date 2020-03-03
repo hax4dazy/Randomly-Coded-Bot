@@ -1,5 +1,6 @@
 module.exports = {
-	name: 'notedebug',
+  name: 'notedebug',
+  aliases: ['debugnote', 'dnote', 'debuglog', 'logdebug'],
 	description: 'Add notes about test session.',
 	execute(message, args) {
     const Discord = require('discord.js');
