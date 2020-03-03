@@ -78,6 +78,17 @@ client.on('error', error => {
 // login to Discord with your app's token
 client.login(token);;
 
+// Set the bot's presence (activity and status)
+client.on("ready", () => {
+    client.user.setPresence({
+        game: { 
+            name: 'really bad commands',
+            type: 'LISTENING'
+        },
+        status: 'online'
+    })
+})
+
 //Don't ask
 client.on('message', msg => {
     if (msg.content === 'tomger') {
