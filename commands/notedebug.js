@@ -6,16 +6,14 @@ module.exports = {
     const client = new Discord.Client();
     const fs = require('fs');
     fs.appendFileSync('./logs/' + sessionid + '.txt', 'Note by ' + message.author.username + '\nNote:' + args.join(' ') +'\n\n');
-    message.reply('noted!')
-    return;
+    message.reply('noted!');
     const debugnote = args.join(' ')
     const notedebug = new Discord.RichEmbed()
-	.setColor('#1a1aff')
-	.setTitle('Debug Mode Note')
-	.addField('Test session ID', sessionid)
+  	.setColor('#1a1aff')
+  	.setTitle('Debug Mode Note')
+	  .addField('Test session ID', sessionid)
     .addField('Current date/time', dateTime)
     .addField('Note', debugnote)
-
-    client.channels.get(`683751300063690885`).send(notedebug);
+    message.client.channels.get(`683751300063690885`).send(notedebug);
   }
     };
