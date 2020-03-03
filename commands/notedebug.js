@@ -5,7 +5,7 @@ module.exports = {
     const Discord = require('discord.js');
     const client = new Discord.Client();
     const fs = require('fs');
-    fs.appendFileSync('./logs/' + sessionid + '.txt', 'Note by ' + message.author.username + '\nNote:' + args.join(' ') +'\n\n');
+    fs.appendFileSync('./logs/' + sessionid + '.debuglog', 'Note by ' + message.author.username + '\nNote:' + args.join(' ') +'\n\n');
     message.reply('noted!');
     const debugnote = args.join(' ')
     const notedebug = new Discord.RichEmbed()
