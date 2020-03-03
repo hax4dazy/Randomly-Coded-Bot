@@ -53,7 +53,6 @@ try {
 	.setTitle('Debug Mode')
 	.addField('Test session ID', sessionid)
 	.addField('Current date/time', dateTime)
-	.addField(buildversion)
 	.addField('---', 'The session has started.')
 
 	client.channels.get(`683751300063690885`).send(exampleEmbed);
