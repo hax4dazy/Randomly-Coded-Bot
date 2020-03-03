@@ -80,13 +80,8 @@ client.login(token);;
 
 //Don't ask
 client.on('message', msg => {
-    if (msg.content === 'tomger') {
-		msg.channel.startTyping()
-		setTimeout(function(){ 
+    if (msg.content.includes('tomger')) {
 			msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30)); 
-			msg.channel.stopTyping()
-		}, 3000);
-		 msg.channel.stopTyping
      }
 });
 
