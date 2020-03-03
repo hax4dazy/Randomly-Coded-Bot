@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'notedebug',
-	description: 'Add notes about test session',
+	description: 'Add notes about test session.',
 	execute(message, args) {
     const Discord = require('discord.js');
     const client = new Discord.Client();
