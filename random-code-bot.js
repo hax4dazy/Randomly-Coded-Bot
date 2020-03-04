@@ -98,6 +98,37 @@ client.on('message', msg => {
      }
 });
 
+//tools for dev server
+client.on('message', message => {
+if (message.channel.id === '684648686063583260') {
+	var today = new Date();
+	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const msgtochanneldebug = new Discord.RichEmbed()
+  	.setColor('#1a1aff')
+  	.setTitle('Debug Mode Note')
+	.addField('Test session ID', sessionid)
+    .addField('Current date/time', dateTime)
+    .addField('Note', message.content)
+    .addField('Note added by', message.author.username)
+	message.client.channels.get(`683751300063690885`).send(msgtochanneldebug);
+	message.delete(message)
+}
+if (message.channel.id === '684659501890011137') {
+	var today = new Date();
+	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const msgtonews = new Discord.RichEmbed()
+  	.setColor('#ffff00')
+  	.setTitle('News update')
+    .addField('Message', message.content)
+    .addField('Released by', message.author.username)
+	message.client.channels.get(`684657303936434176`).send(msgtonews);
+	message.delete(message)
+}
+
+})
+
 //temp thing for play, stop, and skip commands
 client.on('message', async message => {
 	if (message.author.bot) return;
