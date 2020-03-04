@@ -125,10 +125,8 @@ if (message.channel.id === '684659501890011137') {
 	  message.client.channels.get(`684657303936434176`).send(msgtonews);
 	  message.client.channels.get(`684657303936434176`).send('@everyone');
 	  message.delete(message)
-	  const rancommand = 'true'
 	  return;
 	}
-	if (rancommand === 'true')  {return;}
     const msgtonews = new Discord.RichEmbed()
   	.setColor('#ffff00')
   	.setTitle('News update')
