@@ -12,6 +12,8 @@ Download NodeJS from https://nodejs.org
 Run the following in the bot directory in CMD as admin to get the music playback to work. This is not required to run the bot.
 -`npm install --global --production --vs2015 --add-python-to-path windows-build-tools`
 
+You may do `npm i` or install each one from below.
+
 -`npm install ytdl-core`
 
 -`npm install @discordjs/opus`
