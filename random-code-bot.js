@@ -6,6 +6,7 @@ client.commands = new Discord.Collection();
 const queue = new Map();
 const ytdl = require('ytdl-core');
 const { RichEmbed } = require('discord.js')
+const version = 'version'
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -115,9 +116,19 @@ if (message.channel.id === '684648686063583260') {
 	message.delete(message)
 }
 if (message.channel.id === '684659501890011137') {
-	var today = new Date();
-	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
-	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	if (message.content.includes === 'important news'){
+		const msgtonews = new Discord.RichEmbed()
+		.setColor('#ff0000')
+		.setTitle('Important news update')
+	  .addField('Message', message.content)
+	  .addField('Released by', message.author.username)
+	  message.client.channels.get(`684657303936434176`).send(msgtonews);
+	  message.client.channels.get(`684657303936434176`).send('@everyone');
+	  message.delete(message)
+	  const rancommand = 'true'
+	  return;
+	}
+	if (rancommand === 'true')  {return;}
     const msgtonews = new Discord.RichEmbed()
   	.setColor('#ffff00')
   	.setTitle('News update')
