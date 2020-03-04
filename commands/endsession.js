@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'endsession',
-	aliases: ['sessionend', 'kill', 'logoff', 'die'],
+	aliases: ['sessionend', 'logoff',],
 	description: 'Ends the session with reason',
 	execute(message, args) {
 	const Discord = require('discord.js');
