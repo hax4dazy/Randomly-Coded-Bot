@@ -5,6 +5,7 @@ module.exports = {
     const Discord = require('discord.js');
     const client = new Discord.Client();
     const fs = require('fs');
-    message.channel.send('I am going to kermit sudoku')
+    const user = message.mentions.users.first() || message.author;
+    message.channel.send( user + ' ' + 'is ̶n͢ow b̕&̡.̷ 👍̡!');
     },
 };
