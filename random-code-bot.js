@@ -9,6 +9,7 @@ const { RichEmbed } = require('discord.js')
 const version = 'version'
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -16,6 +17,14 @@ for (const file of commandFiles) {
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
+}
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+
+	// set a new item in the Collection
+	// with the key as the event name and the value as the exported module
+	client.event.set(event.name, event);
 }
 
 client.on('message', message => {
@@ -32,6 +41,22 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
+});
+
+client.on('message', message => {
+	if (message.author.bot) return;
+
+   const args = message.content.slice(prefix.length).split(/ +/);
+   const command = args.shift().toLowerCase();
+
+   if (!client.commands.has(command)) return;
+
+   try {
+	   client.commands.get(command).execute(message, args);
+   } catch (error) {
+	   console.error(error);
+	   message.reply('there was an error trying to execute that event!');
+   }
 });
 
 
