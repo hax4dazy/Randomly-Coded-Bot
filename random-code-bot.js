@@ -124,6 +124,13 @@ client.on('message', msg => {
      }
 });
 
+//Don't ask
+client.on('message', msg => {
+		if (msg.content.includes('<@!683752278490087485>')) {
+			msg.channel.send('<@683752278490087485> bad');
+		}
+});
+
 //tools for dev server
 client.on('message', message => {
 if (message.channel.id === '684648686063583260') {
