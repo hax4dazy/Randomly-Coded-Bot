@@ -9,6 +9,7 @@ const { RichEmbed } = require('discord.js')
 const version = 'version'
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -16,6 +17,14 @@ for (const file of commandFiles) {
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
+}
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+
+	// set a new item in the Collection
+	// with the key as the event name and the value as the exported module
+	client.event.set(event.name, event);
 }
 
 client.on('message', message => {
@@ -35,19 +44,19 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	message.author.bot) return;
+	if (message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
+   const args = message.content.slice(prefix.length).split(/ +/);
+   const command = args.shift().toLowerCase();
 
-	if (!client.commands.has(command)) return;
+   if (!client.commands.has(command)) return;
 
-	try {
-		client.commands.get(command).execute(message, args);
-	} catch (error) {
-		console.error(error);
-		message.reply('there was an error trying to execute that command!');
-	}
+   try {
+	   client.commands.get(command).execute(message, args);
+   } catch (error) {
+	   console.error(error);
+	   message.reply('there was an error trying to execute that event!');
+   }
 });
 
 
@@ -55,8 +64,39 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+client.once('ready', () => {
+	const path = './debug.flag'
+try {
+  if (fs.existsSync(path)) {
+	//file exists
+	global.sessionid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+	var today = new Date();
+	var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	global.dateTime = date+' '+time;
+	const exampleEmbed = new Discord.RichEmbed()
+	.setColor('#f8f8ff')
+	.setTitle('Debug Mode')
+	.addField('Test session ID', sessionid)
+	.addField('Current date/time', dateTime)
+	.addField('---', 'The session has started.')
+
+	client.channels.get(`683751300063690885`).send(exampleEmbed);
+
+
+  }
+} catch(err) {
+  console.error(err)
+}
+})
+
 //uh oh something went wrong
 client.on('error', error => {
+	const errorembed = new Discord.RichEmbed()
+	.setColor('#ff0000')
+	.setTitle('Debug Mode Error')
+    .addField('Error', error)
+	client.channels.get(`683751300063690885`).send(errorembed)
 	console.error('an error has occured', error);
 });
 
@@ -100,6 +140,28 @@ if (message.channel.id === '684648686063583260') {
 	message.client.channels.get(`683751300063690885`).send(msgtochanneldebug);
 	message.delete(message)
 }
+if (message.channel.id === '684659501890011137') {
+	if (message.content.includes === 'important news'){
+		const msgtonews = new Discord.RichEmbed()
+		.setColor('#ff0000')
+		.setTitle('Important news update')
+	  .addField('Message', message.content)
+	  .addField('Released by', message.author.username)
+	  message.client.channels.get(`684657303936434176`).send(msgtonews);
+	  message.client.channels.get(`684657303936434176`).send('@everyone');
+	  message.delete(message)
+	  return;
+	}
+    const msgtonews = new Discord.RichEmbed()
+  	.setColor('#ffff00')
+  	.setTitle('News update')
+    .addField('Message', message.content)
+    .addField('Released by', message.author.username)
+	message.client.channels.get(`684657303936434176`).send(msgtonews);
+	message.delete(message)
+}
+
+})
 
 //temp thing for play, stop, and skip commands
 client.on('message', async message => {
