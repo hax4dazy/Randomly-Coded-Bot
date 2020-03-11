@@ -27,6 +27,7 @@ for (const file of eventFiles) {
 	client.event.set(event.name, event);
 }
 
+//this is the code for the /commands folder
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -43,6 +44,7 @@ client.on('message', message => {
 	}
 });
 
+//this is the code for te /events folder
 client.on('message', message => {
 	if (message.author.bot) return;
 
