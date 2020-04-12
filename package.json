@@ -5,7 +5,7 @@
   "main": "random-code-bot.js",
   "dependencies": {
     "@discordjs/opus": "^0.1.0",
-    "discord.js": "^11.6.1",
+    "discord.js": "^11.6.4",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.0.1",
     "node-opus": "^0.3.3",

@@ -119,8 +119,10 @@ client.on("ready", () => {
 
 //Don't ask
 client.on('message', msg => {
-    if (msg.content.includes('tomger')) {
-		if (msg.content.includes('tomger is god')) {msg.channel.send('Yes')
+	const message = msg.content.toLowerCase()
+    if (message.includes('tomger')) {
+		const text = msg.content.toLowerCase()
+		if (text.includes('tomger is god')) {msg.channel.send('YES')
 		return;}
 			msg.channel.send('@tomGER#7462 eta wen kosmos v' + Math.ceil(Math.random() * 30)); 
      }
