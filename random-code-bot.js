@@ -1,7 +1,7 @@
 const fs = require('fs');
-const Discord = require('discord.js');
+global.Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
-const client = new Discord.Client();
+global.client = new Discord.Client();
 client.commands = new Discord.Collection();
 const queue = new Map();
 const ytdl = require('ytdl-core');
