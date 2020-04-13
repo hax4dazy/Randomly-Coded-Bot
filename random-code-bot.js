@@ -104,7 +104,7 @@ client.on('error', error => {
 
 
 // login to Discord with your app's token
-client.login(token);;
+client.login(token);
 
 // Set the bot's presence (activity and status)
 client.on("ready", () => {
